@@ -64,8 +64,10 @@
   * { border-color: var(--color-border); }
   html { scroll-behavior: smooth; }
   body {
-    background: var(--gradient-sky);
+    background: linear-gradient(180deg, #cfe9ff 0%, #d6e8ff 22%, #dfeaff 45%, #e8e9ff 70%, #f1e9ff 100%);
+    background-size: 200% 220%;
     background-attachment: fixed;
+    animation: water-shift 22s ease-in-out infinite alternate;
     color: var(--color-foreground);
     font-family: var(--font-body);
     overflow-x: hidden;
