@@ -107,21 +107,46 @@
   .hover-glow:hover {
     box-shadow: 0 0 0 1px rgba(120,150,255,0.5), 0 0 50px -10px rgba(120,150,255,0.7);
   }
-  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s ease, transform .8s ease; }
+  .reveal { opacity: 0; transform: translateY(28px); transition: opacity 1s cubic-bezier(.22,.61,.36,1), transform 1s cubic-bezier(.22,.61,.36,1); }
   .reveal.in { opacity: 1; transform: none; }
+  .flow-mask {
+    -webkit-mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+            mask-image: linear-gradient(180deg, transparent, black 12%, black 88%, transparent);
+  }
 }
 
-@keyframes float-cloud {
-  0% { transform: translateX(-10vw); }
-  100% { transform: translateX(110vw); }
+/* Water-flow keyframes */
+@keyframes water-shift {
+  0%   { background-position: 0% 0%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 100%; }
 }
-@keyframes float-y {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+@keyframes wave-flow {
+  0%   { transform: translateX(0) translateZ(0); }
+  100% { transform: translateX(-50%) translateZ(0); }
 }
-@keyframes spin-slow {
-  to { transform: rotate(360deg); }
+@keyframes wave-flow-slow {
+  0%   { transform: translateX(-25%) translateZ(0); }
+  100% { transform: translateX(0%) translateZ(0); }
 }
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+@keyframes ripple {
+  0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(120,150,255,0.35); }
+  100% { transform: scale(1); box-shadow: 0 0 0 22px rgba(120,150,255,0); }
+}
+
+.animate-wave-flow      { animation: wave-flow 18s linear infinite; }
+.animate-wave-flow-slow { animation: wave-flow-slow 28s linear infinite; }
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.55), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3.5s linear infinite;
+}
+.hover-ripple:hover { animation: ripple 1.2s ease-out infinite; }
+
 @keyframes blink {
   0%, 49% { opacity: 1; }
   50%, 100% { opacity: 0; }
