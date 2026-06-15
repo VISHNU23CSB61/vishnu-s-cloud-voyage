@@ -111,6 +111,40 @@ function CloudBackground() {
   );
 }
 
+/* ---------- Wave divider (water flow between sections) ---------- */
+function WaveDivider({ flip = false, tint = "rgba(255,255,255,0.55)" }: { flip?: boolean; tint?: string }) {
+  return (
+    <div
+      aria-hidden="true"
+      className="relative w-full overflow-hidden pointer-events-none"
+      style={{ height: 90, transform: flip ? "scaleY(-1)" : undefined }}
+    >
+      {/* Two stacked, slowly drifting wave layers for a watery feel */}
+      <svg
+        className="absolute inset-y-0 left-0 h-full animate-wave-flow"
+        style={{ width: "200%" }}
+        viewBox="0 0 2400 90"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,50 C200,10 400,90 600,50 C800,10 1000,90 1200,50 C1400,10 1600,90 1800,50 C2000,10 2200,90 2400,50 L2400,90 L0,90 Z"
+          fill={tint}
+        />
+      </svg>
+      <svg
+        className="absolute inset-y-0 left-0 h-full animate-wave-flow-slow opacity-70"
+        style={{ width: "200%" }}
+        viewBox="0 0 2400 90"
+        preserveAspectRatio="none"
+      >
+        <path
+          d="M0,60 C300,30 500,80 800,55 C1100,30 1300,80 1600,55 C1900,30 2100,80 2400,55 L2400,90 L0,90 Z"
+          fill="rgba(167,196,255,0.35)"
+        />
+      </svg>
+    </div>
+  );
+
 /* ---------- Reveal on scroll ---------- */
 function useReveal() {
   useEffect(() => {
