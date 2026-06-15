@@ -144,6 +144,8 @@ function WaveDivider({ flip = false, tint = "rgba(255,255,255,0.55)" }: { flip?:
       </svg>
     </div>
   );
+}
+
 
 /* ---------- Reveal on scroll ---------- */
 function useReveal() {
