@@ -805,12 +805,19 @@ function Portfolio() {
       <Nav />
       <main>
         <Hero />
+        <WaveDivider />
         <About />
+        <WaveDivider flip tint="rgba(255,255,255,0.45)" />
         <Education />
+        <WaveDivider />
         <Skills />
+        <WaveDivider flip tint="rgba(255,255,255,0.45)" />
         <Projects />
+        <WaveDivider />
         <CP />
+        <WaveDivider flip tint="rgba(255,255,255,0.45)" />
         <Roadmap />
+        <WaveDivider />
         <Contact />
       </main>
       <Footer />
